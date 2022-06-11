@@ -9,5 +9,18 @@ export type AmplifyDependentResourcesAttributes = {
             "AppClientIDWeb": "string",
             "AppClientID": "string"
         }
+    },
+    "api": {
+        "amplifyapp": {
+            "GraphQLAPIKeyOutput": "string",
+            "GraphQLAPIIdOutput": "string",
+            "GraphQLAPIEndpointOutput": "string"
+        }
+    },
+    "storage": {
+        "amplifyDemoStorage": {
+            "BucketName": "string",
+            "Region": "string"
+        }
     }
 }

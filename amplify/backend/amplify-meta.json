@@ -40,7 +40,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify7cab134ddcf04-staging-190843-deployment/amplify-cfn-templates/auth/amplifyapp6107ca74-cloudformation-template.json",
         "logicalId": "authamplifyapp6107ca74"
       },
-      "lastPushTimeStamp": "2022-06-11T19:21:11.997Z",
+      "lastPushTimeStamp": "2022-06-11T21:06:09.314Z",
       "output": {
         "UserPoolId": "us-west-2_FgKsoJODP",
         "AppClientIDWeb": "skmr9ue5bo2l3be5ni2vm5v63",
@@ -51,6 +51,50 @@
         "UserPoolName": "amplifyapp6107ca74_userpool_6107ca74"
       },
       "lastPushDirHash": "oWaTXmtAH5HKZSTMpcFaMDFcahE="
+    }
+  },
+  "api": {
+    "amplifyapp": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "aoea4p4ivvfadjmxwqsv2v7hjy",
+        "GraphQLAPIEndpointOutput": "https://34hsxmcyg5av5cccie3o4wcihi.appsync-api.us-west-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-nywju72sfzci5h3a3zw77mspvm"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify7cab134ddcf04-staging-190843-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiamplifyapp"
+      },
+      "lastPushTimeStamp": "2022-06-11T21:06:14.136Z",
+      "lastPushDirHash": "NrDb7DyOna1P9IJ0MzQpXJ30UF4="
+    }
+  },
+  "storage": {
+    "amplifyDemoStorage": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "lastPushTimeStamp": "2022-06-11T21:06:14.136Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify7cab134ddcf04-staging-190843-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storageamplifyDemoStorage"
+      },
+      "output": {
+        "BucketName": "amplifyappf47cf5b61f234ab7b06ab3a987e27eb8190843-staging",
+        "Region": "us-west-2"
+      },
+      "lastPushDirHash": "uL9xTLF4LKpBZ+s6q/qM98RuZVY="
     }
   }
 }

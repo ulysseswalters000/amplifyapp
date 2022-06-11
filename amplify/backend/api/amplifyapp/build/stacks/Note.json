@@ -351,6 +351,36 @@
         "NoteIAMRoleCA742F19"
       ]
     },
+    "QuerygetNoteauth0FunctionQuerygetNoteauth0FunctionAppSyncFunction1125F54B": {
+      "Type": "AWS::AppSync::FunctionConfiguration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "DataSourceName": {
+          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
+        },
+        "FunctionVersion": "2018-05-29",
+        "Name": "QuerygetNoteauth0Function",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Query.getNote.auth.1.req.vtl"
+            ]
+          ]
+        },
+        "ResponseMappingTemplate": "$util.toJson({})"
+      }
+    },
     "QuerygetNotepostAuth0FunctionQuerygetNotepostAuth0FunctionAppSyncFunctionBC9940CA": {
       "Type": "AWS::AppSync::FunctionConfiguration",
       "Properties": {
@@ -443,6 +473,12 @@
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
+            {
+              "Fn::GetAtt": [
+                "QuerygetNoteauth0FunctionQuerygetNoteauth0FunctionAppSyncFunction1125F54B",
+                "FunctionId"
+              ]
+            },
             {
               "Fn::GetAtt": [
                 "QuerygetNotepostAuth0FunctionQuerygetNotepostAuth0FunctionAppSyncFunctionBC9940CA",
@@ -540,6 +576,12 @@
           "Functions": [
             {
               "Fn::GetAtt": [
+                "QuerygetNoteauth0FunctionQuerygetNoteauth0FunctionAppSyncFunction1125F54B",
+                "FunctionId"
+              ]
+            },
+            {
+              "Fn::GetAtt": [
                 "QuerygetNotepostAuth0FunctionQuerygetNotepostAuth0FunctionAppSyncFunctionBC9940CA",
                 "FunctionId"
               ]
@@ -595,6 +637,36 @@
                 "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
               },
               "/resolvers/Mutation.createNote.init.1.req.vtl"
+            ]
+          ]
+        },
+        "ResponseMappingTemplate": "$util.toJson({})"
+      }
+    },
+    "MutationcreateNoteauth0FunctionMutationcreateNoteauth0FunctionAppSyncFunction24439C2F": {
+      "Type": "AWS::AppSync::FunctionConfiguration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "DataSourceName": {
+          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
+        },
+        "FunctionVersion": "2018-05-29",
+        "Name": "MutationcreateNoteauth0Function",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Mutation.createNote.auth.1.req.vtl"
             ]
           ]
         },
@@ -671,6 +743,12 @@
             },
             {
               "Fn::GetAtt": [
+                "MutationcreateNoteauth0FunctionMutationcreateNoteauth0FunctionAppSyncFunction24439C2F",
+                "FunctionId"
+              ]
+            },
+            {
+              "Fn::GetAtt": [
                 "QuerygetNotepostAuth0FunctionQuerygetNotepostAuth0FunctionAppSyncFunctionBC9940CA",
                 "FunctionId"
               ]
@@ -731,6 +809,57 @@
         },
         "ResponseMappingTemplate": "$util.toJson({})"
       }
+    },
+    "MutationupdateNoteauth0FunctionMutationupdateNoteauth0FunctionAppSyncFunction72CAF43F": {
+      "Type": "AWS::AppSync::FunctionConfiguration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": [
+            "NoteDataSource",
+            "Name"
+          ]
+        },
+        "FunctionVersion": "2018-05-29",
+        "Name": "MutationupdateNoteauth0Function",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Mutation.updateNote.auth.1.req.vtl"
+            ]
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Mutation.updateNote.auth.1.res.vtl"
+            ]
+          ]
+        }
+      },
+      "DependsOn": [
+        "NoteDataSource"
+      ]
     },
     "MutationUpdateNoteDataResolverFnMutationUpdateNoteDataResolverFnAppSyncFunctionBCC5D9E4": {
       "Type": "AWS::AppSync::FunctionConfiguration",
@@ -802,6 +931,12 @@
             },
             {
               "Fn::GetAtt": [
+                "MutationupdateNoteauth0FunctionMutationupdateNoteauth0FunctionAppSyncFunction72CAF43F",
+                "FunctionId"
+              ]
+            },
+            {
+              "Fn::GetAtt": [
                 "QuerygetNotepostAuth0FunctionQuerygetNotepostAuth0FunctionAppSyncFunctionBC9940CA",
                 "FunctionId"
               ]
@@ -832,6 +967,57 @@
         },
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
       }
+    },
+    "MutationdeleteNoteauth0FunctionMutationdeleteNoteauth0FunctionAppSyncFunction5FE2B4D0": {
+      "Type": "AWS::AppSync::FunctionConfiguration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": [
+            "NoteDataSource",
+            "Name"
+          ]
+        },
+        "FunctionVersion": "2018-05-29",
+        "Name": "MutationdeleteNoteauth0Function",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Mutation.deleteNote.auth.1.req.vtl"
+            ]
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Mutation.deleteNote.auth.1.res.vtl"
+            ]
+          ]
+        }
+      },
+      "DependsOn": [
+        "NoteDataSource"
+      ]
     },
     "MutationDeleteNoteDataResolverFnMutationDeleteNoteDataResolverFnAppSyncFunction3FA3FDA0": {
       "Type": "AWS::AppSync::FunctionConfiguration",
@@ -897,6 +1083,12 @@
           "Functions": [
             {
               "Fn::GetAtt": [
+                "MutationdeleteNoteauth0FunctionMutationdeleteNoteauth0FunctionAppSyncFunction5FE2B4D0",
+                "FunctionId"
+              ]
+            },
+            {
+              "Fn::GetAtt": [
                 "QuerygetNotepostAuth0FunctionQuerygetNotepostAuth0FunctionAppSyncFunctionBC9940CA",
                 "FunctionId"
               ]
@@ -926,6 +1118,36 @@
           ]
         },
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+      }
+    },
+    "SubscriptiononCreateNoteauth0FunctionSubscriptiononCreateNoteauth0FunctionAppSyncFunction853C832F": {
+      "Type": "AWS::AppSync::FunctionConfiguration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "DataSourceName": {
+          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
+        },
+        "FunctionVersion": "2018-05-29",
+        "Name": "SubscriptiononCreateNoteauth0Function",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Subscription.onCreateNote.auth.1.req.vtl"
+            ]
+          ]
+        },
+        "ResponseMappingTemplate": "$util.toJson({})"
       }
     },
     "SubscriptionOnCreateNoteDataResolverFnSubscriptionOnCreateNoteDataResolverFnAppSyncFunction37D6FFF2": {
@@ -986,6 +1208,12 @@
           "Functions": [
             {
               "Fn::GetAtt": [
+                "SubscriptiononCreateNoteauth0FunctionSubscriptiononCreateNoteauth0FunctionAppSyncFunction853C832F",
+                "FunctionId"
+              ]
+            },
+            {
+              "Fn::GetAtt": [
                 "QuerygetNotepostAuth0FunctionQuerygetNotepostAuth0FunctionAppSyncFunctionBC9940CA",
                 "FunctionId"
               ]
@@ -1026,6 +1254,12 @@
           "Functions": [
             {
               "Fn::GetAtt": [
+                "SubscriptiononCreateNoteauth0FunctionSubscriptiononCreateNoteauth0FunctionAppSyncFunction853C832F",
+                "FunctionId"
+              ]
+            },
+            {
+              "Fn::GetAtt": [
                 "QuerygetNotepostAuth0FunctionQuerygetNotepostAuth0FunctionAppSyncFunctionBC9940CA",
                 "FunctionId"
               ]
@@ -1064,6 +1298,12 @@
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
+            {
+              "Fn::GetAtt": [
+                "SubscriptiononCreateNoteauth0FunctionSubscriptiononCreateNoteauth0FunctionAppSyncFunction853C832F",
+                "FunctionId"
+              ]
+            },
             {
               "Fn::GetAtt": [
                 "QuerygetNotepostAuth0FunctionQuerygetNotepostAuth0FunctionAppSyncFunctionBC9940CA",
